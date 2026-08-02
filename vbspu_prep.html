@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VBSPU Prep Hub | Your Placement Guide</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e293b;
+            --accent: #3b82f6;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Navbar --- */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .login-btn {
+            background: var(--primary);
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 5px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 80px 5% 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+        }
+
+        .hero-btns .btn {
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-right: 15px;
+            transition: var(--transition);
+        }
+
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-outline { border: 2px solid var(--primary); color: var(--primary); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3); }
+
+        .hero-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .hero-image img {
+            width: 90%;
+            border-radius: 20px;
+            box-shadow: 20px 20px 60px #d1d9e6;
+        }
+
+        /* --- Stats Section --- */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 50px 5%;
+            background: var(--secondary);
+            color: white;
+            text-align: center;
+        }
+
+        .stat-item h2 { font-size: 2.5rem; color: var(--accent); }
+        .stat-item p { font-size: 1rem; opacity: 0.8; }
+
+        /* --- Section Styling --- */
+        section { padding: 80px 5%; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 { font-size: 2.2rem; margin-bottom: 10px; }
+        .section-title div { width: 50px; height: 4px; background: var(--primary); margin: 0 auto; }
+
+        /* --- Categories Grid --- */
+        .grid-6 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: var(--transition);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-color: var(--primary);
+        }
+
+        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        .card h3 { margin-bottom: 15px; }
+
+        /* --- Roadmap & Resources Lists --- */
+        .roadmap-container {
+            background: var(--light);
+            padding: 40px;
+            border-radius: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .list-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* --- Companies --- */
+        .company-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .company-badge {
+            background: #f1f5f9;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+        .company-badge:hover { background: var(--primary); color: white; }
+
+        /* --- Contact --- */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            background: var(--light);
+            padding: 50px;
+            border-radius: 20px;
+        }
+
+        .contact-info i { color: var(--primary); margin-right: 10px; margin-bottom: 20px; }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 60px 5% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo h2 { color: var(--white); margin-bottom: 10px; }
+        .footer-links h4 { margin-bottom: 20px; color: var(--accent); }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: #cbd5e1; text-decoration: none; }
+
+        .disclaimer {
+            border-top: 1px solid #334155;
+            padding-top: 20px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 40px; }
+            .hero-image { display: none; }
+            .nav-links { display: none; } /* Simplified for demo */
+            .contact-container { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.5rem; }
+        }
+        .list-item{
+    display: block;
+    text-decoration: none;
+    color: #1e293b;
+    transition: 0.3s;
+}
+
+.list-item:hover{
+    color: #2563eb;
+    transform: translateY(-3px);
+}
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card-link h4 {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-link:hover {
+    text-decoration: none;
+}.card a {
+    text-decoration: none;
+    color: inherit;
+}
+.list-link{
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.list-item{
+    cursor: pointer;
+}
+
+.list-item:hover{
+    transform: translateY(-5px);
+    transition: .3s;
+}
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <img src="images/favicon.ico" height="70px width = 70px">
+        <a href="#" class="logo">VBSPU Prep Hub</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#roadmap">Roadmaps</a></li>
+            <li><a href="#dsa">DSA</a></li>
+            <li><a href="#aptitude">Aptitude</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#companies">Companies</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#" class="login-btn">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>VBSPU Prep Hub</h1>
+            <p>Your Complete Placement Preparation Platform. Master DSA, Aptitude, and Interview skills tailored specifically for VBSPU students.</p>
+            <div class="hero-btns">
+                <a href="#roadmap" class="btn btn-primary">Get Started</a>
+                <a href="#resources" class="btn btn-outline">Explore Resources</a>
+            </div>
+        </div>
+        <div class="hero-image">
+           <img src="images/vbspu-campus.webp.png" alt="VBSPU Campus">
+    </section>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat-item">
+            <h2>500+</h2>
+            <p>DSA Problems</p>
+        </div>
+        <div class="stat-item">
+            <h2>150+</h2>
+            <p>Interview Questions</p>
+        </div>
+        <div class="stat-item">
+            <h2>50+</h2>
+            <p>Companies</p>
+        </div>
+        <div class="stat-item">
+            <h2>100+</h2>
+            <p>Study Resources</p>
+        </div>
+    </div>
+
+    <!-- PREPARATION CATEGORIES -->
+    <section>
+        <div class="section-title">
+            <h2>Preparation Categories</h2>
+            <div></div>
+        </div>
+        <div class="grid-6">
+            <div class="card">
+                <i class="fas fa-code"></i>
+                <h3>DSA Preparation</h3>
+                <p>Master Data Structures and Algorithms from basic to advanced.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-brain"></i>
+                <h3>Aptitude Practice</h3>
+                <p>Sharpen your logical, quantitative, and verbal skills.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-file-invoice"></i>
+                <h3>Resume Builder</h3>
+                <p>Create ATS-friendly resumes that get you shortlisted.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-comments"></i>
+                <h3>Interview Questions</h3>
+                <p>Handpicked HR and Technical questions from top companies.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-building"></i>
+                <h3>Company Preparation</h3>
+                <p>Specific patterns and archives for major recruiters.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-book"></i>
+                <h3>Study Resources</h3>
+                <p>Notes for Core CS subjects like OS, DBMS, and Networking.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DSA ROADMAP -->
+    <section id="roadmap" style="background: #f8fafc;">
+        <div class="section-title">
+            <h2>DSA Roadmap</h2>
+            <p>Step-by-step guide to mastering DSA</p>
+            <div></div>
+        </div>
+        <div class="roadmap-container">
+    
+    <a href="resources/dsa/arrays.pdf.pdf" target="_blank" class="list-link">
+        <div class="list-item">Arrays</div>
+    </a>
+                <a href="resources/dsa/Strings.pdf" target="_blank" class="list-link">
+        <div class="list-item">Strings</div>
+    </a>
+
+              <a href="resources/dsa/Linked.pdf.pdf" target="_blank" class="list-link">
+        <div class="list-item">Linked List</div>
+    </a>
+
+               <a href="resources/dsa/Stack.pdf" target="_blank" class="list-link">
+        <div class="list-item">Stack</div>
+    </a>
+             <a href="resources/dsa/Queue.pdf" target="_blank" class="list-link">
+        <div class="list-item">Queue</div>
+    </a>
+              <a href="resources/dsa/Trees.pdf" target="_blank" class="list-link">
+        <div class="list-item">Trees</div>
+    </a>
+
+                <a href="resources/dsa/Graphs.pdf" target="_blank" class="list-link">
+        <div class="list-item">Graphs</div>
+    </a>
+             <a href="resources/dsa/Dynamic.pdf" target="_blank" class="list-link">
+        <div class="list-item">Dynamic Programming</div>
+    </a>
+
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#" class="btn btn-primary">View Complete Roadmap</a>
+        </div>
+    </section>
+
+    <!-- APTITUDE SECTION -->
+    <section id="aptitude">
+        <div class="section-title">
+            <h2>Aptitude Section</h2>
+            <div></div>
+        </div>
+        <div class="grid-6">
+      <a href="resources/aptitude/Quantitative%20Aptitude.pdf.pdf" target="_blank" class="card-link">
+    <div class="card">
+        <h4>Quantitative Aptitude</h4>
+    </div>
+</a>
+            <a href="resources/aptitude/Logical%20Reasoning.pdf" target="_blank">
+    <div class="card">
+        <h4>Logical Reasoning</h4>
+    </div>
+</a>
+            
+<a href="resources/aptitude/Verbal Ability.pdf.pdf" target="_blank" class="card-link">
+    <div class="card">
+        <h4>Verbal Ability</h4>
+    </div>
+</a>
+            <a href="resources/aptitude/Data Interpretation.pdf" target="_blank" class="card-link">
+    <div class="card">
+        <h4>Data Interpretation</h4>
+    </div>
+</a>
+        </div>
+    </section>
+
+    <!-- COMPANY PREPARATION -->
+    <section id="companies" style="background: #f8fafc;">
+        <div class="section-title">
+            <h2>Company Specific Prep</h2>
+            <div></div>
+        </div>
+        <div class="company-grid">
+            <div class="company-badge">Google</div>
+            <div class="company-badge">Microsoft</div>
+            <div class="company-badge">Amazon</div>
+            <div class="company-badge">TCS</div>
+            <div class="company-badge">Infosys</div>
+            <div class="company-badge">Accenture</div>
+            <div class="company-badge">Capgemini</div>
+            <div class="company-badge">Wipro</div>
+        </div>
+    </section>
+
+    <!-- STUDY RESOURCES -->
+    <section id="resources">
+        <div class="section-title">
+            <h2>Study Resources</h2>
+            <div></div>
+        </div>
+        <div class="roadmap-container" style="background: white;">
+            <a href="resources/html.pdf" target="_blank" class="list-item">HTML</a>
+            <a href="resources/css.pdf" target="_blank" class="list-item">CSS</a>
+            <a href="resources/c.pdf" target="_blank" class="list-item">C</a>
+              <a href="resources/javascript.pdf" target="_blank" class="list-item">JavaScript</a>
+            <a href="resources/python.pdf" target="_blank" class="list-item">Python</a>
+            <a href="resources/cpp.pdf" target="_blank" class="list-item">C++</a> 
+            <a href="resources/os.pdf" target="_blank" class="list-item">Operating System</a>
+            <a href="resources/dbms.pdf" target="_blank" class="list-item">DBMS</a>
+             <a href="resources/cn.pdf" target="_blank" class="list-item">Computer Networks</a>
+                <a href="resources/oops.pdf" target="_blank" class="list-item">OOPs</a>
+            <a href="resources/java.pdf" target="_blank" class="list-item">Java</a>
+             <a href="resources/dsa.pdf" target="_blank" class="list-item">DSA Notes</a>
+        </div>
+    </section>
+
+    <!-- RESUME BUILDER -->
+    <section id="resume" style="background: var(--secondary); color: white;">
+        <div class="section-title">
+            <h2 style="color: white;">Resume Builder</h2>
+            <div></div>
+        </div>
+        <div class="grid-6" style="text-align: left;">
+            <div>
+                <p><i class="fas fa-check-circle" style="color: #4ade80;"></i> Expert Resume Tips</p>
+                <p><i class="fas fa-check-circle" style="color: #4ade80;"></i> ATS Friendly Templates</p>
+                <p><i class="fas fa-check-circle" style="color: #4ade80;"></i> Professional Layouts</p>
+                <br>
+                <a href="#" class="btn btn-primary">Create My Resume</a>
+            </div>
+            <div style="text-align: center;">
+                <i class="fas fa-file-pdf" style="font-size: 100px; color: var(--accent);"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <div></div>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <p>We are here to help you with your placement journey.</p>
+                <br>
+                <p><i class="fas fa-map-marker-alt"></i> VBSPU Prep Hub, Jaunpur, UP, India</p>
+                <p><i class="fas fa-envelope"></i> support : rajmishra231107@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +91 9236666751</p>
+            </div>
+            <div class="contact-form">
+                <!-- Simplified for visual -->
+                <input type="text" placeholder="Your Name" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;">
+                <input type="email" placeholder="Your Email" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;">
+                <textarea placeholder="Message" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; height: 100px;"></textarea>
+                <button class="btn btn-primary" style="border: none; width: 100%; cursor: pointer;">Send Message</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-logo">
+                <h2>VBSPU Prep Hub</h2>
+                <p>Prepare • Practice • Get Placed</p>
+                <p style="margin-top: 15px; color: #94a3b8;">Empowering students to achieve their career goals with quality resources.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Designed By</h4>
+                <p>Raj Mishra</p>
+                <div style="margin-top: 20px; font-size: 1.5rem;">
+                    <i class="fab fa-linkedin" style="margin-right: 15px;"></i>
+                    <i class="fab fa-github"></i>
+                </div>
+            </div>
+        </div>
+        <div class="disclaimer">
+            <p>© 2026 VBSPU Prep Hub | Designed & Developed by Raj Mishra</p>
+            <p style="margin-top: 10px;">Disclaimer: This website is an independent student project and is not officially affiliated with Veer Bahadur Singh Purvanchal University.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
