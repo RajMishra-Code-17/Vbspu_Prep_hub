@@ -11,7 +11,7 @@ The platform provides well-organized study resources, aptitude materials, and pr
 - 🌳 Data Structures & Algorithms (Arrays, Strings, Stack, Queue, Trees, Graphs, Dynamic Programming)
 - 📄 One-click PDF access
 - 📱 Responsive design for desktop and mobile
-- ⚡ Simple, fast, and user-friendly interface
+- ⚡ Simple, fast, and user-friendly interface.
 
 ## 🚀 Live Demo
 
