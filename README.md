@@ -44,4 +44,4 @@ Suggestions and improvements are always welcome. Feel free to fork the repositor
 
 ## 📜 License
 
-This project is created for educational purposes.
+This project is created for educational purposes
