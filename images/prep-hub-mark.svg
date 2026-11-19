@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">VBSPU Prep Hub</title>
+  <defs>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f8dff"/>
+      <stop offset="1" stop-color="#4f46e5"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="18" fill="#0d1730" stroke="#60a5fa" stroke-opacity=".4" stroke-width="2"/>
+  <path d="M32 13 10 23l22 10 17-7.7V38h4V23z" fill="url(#mark)" stroke="#bfdbfe" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M18 29v12c8 7 17 7 25 0V29l-11 5z" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M32 35v14" stroke="#60a5fa" stroke-width="2"/>
+  <path d="M21 45c7 5 15 5 22 0" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="53" cy="23" r="2" fill="#a5b4fc"/>
+</svg>

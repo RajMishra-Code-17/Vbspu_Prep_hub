@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 640" role="img" aria-labelledby="title description">
+  <title id="title">Two students reading together</title>
+  <desc id="description">A cartoon boy and girl study together with an open book in a blue technology-themed setting.</desc>
+  <defs>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563eb" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity=".08"/>
+    </linearGradient>
+    <linearGradient id="boyJacket" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#1e3a8a"/>
+    </linearGradient>
+    <linearGradient id="girlJacket" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="bookCover" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#172554"/>
+    </linearGradient>
+    <filter id="softShadow" x="-25%" y="-25%" width="150%" height="170%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#020617" flood-opacity=".5"/>
+    </filter>
+  </defs>
+
+  <circle cx="400" cy="300" r="260" fill="url(#glow)"/>
+  <circle cx="400" cy="300" r="220" fill="none" stroke="#60a5fa" stroke-opacity=".16" stroke-width="2"/>
+  <circle cx="400" cy="300" r="188" fill="none" stroke="#38bdf8" stroke-opacity=".09" stroke-width="1.5" stroke-dasharray="5 12"/>
+
+  <g fill="#bfdbfe" font-family="monospace" font-weight="700">
+    <text x="88" y="214" font-size="31" opacity=".8">&lt;/&gt;</text>
+    <text x="625" y="250" font-size="27" opacity=".78">{ }</text>
+    <text x="132" y="390" font-size="18" opacity=".62">0101</text>
+  </g>
+  <g fill="#60a5fa">
+    <circle cx="166" cy="278" r="4"/>
+    <circle cx="630" cy="328" r="5"/>
+    <circle cx="585" cy="172" r="3"/>
+    <path d="M651 166h30v3h-30zM664 153h3v30h-3z" opacity=".8"/>
+    <path d="M113 467h26v3h-26zM124 456h3v26h-3z" opacity=".75"/>
+  </g>
+
+  <ellipse cx="400" cy="570" rx="245" ry="28" fill="#020617" opacity=".38"/>
+
+  <g filter="url(#softShadow)">
+    <path d="M92 530c9-105 70-169 181-177l73 45 54 4 54-4 73-45c111 8 172 72 181 177v24H92z" fill="#14213d"/>
+    <path d="M112 528c11-88 61-137 151-146l73 35 64 5-80 104H112z" fill="url(#boyJacket)"/>
+    <path d="M688 528c-11-88-61-137-151-146l-73 35-64 5 80 104h208z" fill="url(#girlJacket)"/>
+    <path d="M312 391c14 25 43 40 88 40s74-15 88-40l37 28c-25 43-66 66-125 66s-100-23-125-66z" fill="#172554"/>
+
+    <path d="M218 324h88v81c0 26-19 45-44 45s-44-19-44-45z" fill="#b96f4a"/>
+    <path d="M478 324h88v81c0 26-19 45-44 45s-44-19-44-45z" fill="#bd7655"/>
+
+    <path d="M181 277c0-85 36-135 84-135 57 0 91 47 91 124 0 45-10 89-28 116l-16-50-97 5-20 47c-9-23-14-62-14-107z" fill="#172033"/>
+    <path d="M442 273c0-74 35-125 91-125 57 0 87 49 87 128 0 53-14 102-34 124l-13-67-116-2-12 69c-2-34-3-79-3-127z" fill="#111827"/>
+
+    <path d="M199 269c0-55 27-91 67-91 41 0 67 36 67 91v54c0 48-27 82-67 82s-67-34-67-82z" fill="#d28a62"/>
+    <path d="M463 267c0-53 28-88 69-88s69 35 69 88v57c0 48-28 81-69 81s-69-33-69-81z" fill="#d99873"/>
+
+    <path d="M190 254c5-67 34-112 83-112 48 0 76 33 82 92-26-8-45-24-58-45-23 27-57 43-104 47z" fill="#172033"/>
+    <path d="M451 252c6-65 35-104 81-104 44 0 73 32 78 89-27-3-52-19-69-42-21 26-49 42-90 46z" fill="#111827"/>
+    <path d="M462 243c9-35 22-53 40-68-8 28-22 49-40 68zM550 178c28 11 47 35 57 70-25-16-43-39-57-70z" fill="#111827"/>
+    <path d="M467 243c-11 50-8 104 13 130-25-17-40-51-40-94 0-58 24-103 61-119-18 25-27 52-34 83z" fill="#111827"/>
+    <path d="M559 204c35 29 48 74 40 132-3 31-15 61-34 81 22-45 21-105 4-151-9-26-15-45-10-62z" fill="#111827"/>
+
+    <path d="M222 284c8-6 18-6 26 0M290 284c8-6 18-6 26 0" fill="none" stroke="#482c25" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="235" cy="299" rx="4" ry="5" fill="#111827"/>
+    <ellipse cx="303" cy="299" rx="4" ry="5" fill="#111827"/>
+    <path d="M266 301l-5 17 10 2" fill="none" stroke="#9a543b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M245 337c12 11 32 11 44 0" fill="none" stroke="#7c342d" stroke-width="4" stroke-linecap="round"/>
+    <path d="M252 339c8 5 22 5 30 0" fill="none" stroke="#fff1e8" stroke-width="3" stroke-linecap="round"/>
+
+    <path d="M486 286c8-6 18-6 26 0M554 286c8-6 18-6 26 0" fill="none" stroke="#56352c" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="499" cy="301" rx="4" ry="5" fill="#111827"/>
+    <ellipse cx="567" cy="301" rx="4" ry="5" fill="#111827"/>
+    <path d="M530 303l-5 17 10 2" fill="none" stroke="#a86449" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M510 340c12 11 32 11 44 0" fill="none" stroke="#874638" stroke-width="4" stroke-linecap="round"/>
+    <path d="M517 342c8 5 22 5 30 0" fill="none" stroke="#fff1e8" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <path d="M183 411c87-31 152-26 217 10v140c-68-39-135-42-217-9z" fill="url(#bookCover)"/>
+    <path d="M617 411c-87-31-152-26-217 10v140c68-39 135-42 217-9z" fill="url(#bookCover)"/>
+    <path d="M194 405c80-28 145-21 206 13v128c-63-35-127-39-206-10z" fill="#eff6ff"/>
+    <path d="M606 405c-80-28-145-21-206 13v128c63-35 127-39 206-10z" fill="#dbeafe"/>
+    <path d="M400 418v128" stroke="#60a5fa" stroke-width="5"/>
+    <path d="M220 431c55-17 108-14 153 7M220 453c55-17 108-14 153 7M220 475c55-17 108-14 153 7M220 497c55-17 108-14 153 7" fill="none" stroke="#60a5fa" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+    <path d="M427 438c45-21 98-24 153-7M427 460c45-21 98-24 153-7M427 482c45-21 98-24 153-7M427 504c45-21 98-24 153-7" fill="none" stroke="#3b82f6" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+    <path d="M392 419h16v112l-8-8-8 8z" fill="#38bdf8"/>
+  </g>
+
+  <g fill="#60a5fa">
+    <circle cx="199" cy="414" r="5"/>
+    <circle cx="597" cy="390" r="5"/>
+    <circle cx="400" cy="104" r="4"/>
+  </g>
+</svg>

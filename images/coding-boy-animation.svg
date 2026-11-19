@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" role="img" aria-labelledby="title description">
+  <title id="title">Animated student coding at a laptop</title>
+  <desc id="description">A young programmer in a hoodie and headphones types colorful code at a laptop, surrounded by subtle blue and purple developer symbols.</desc>
+  <defs>
+    <radialGradient id="ambient">
+      <stop offset="0" stop-color="#293b82" stop-opacity=".85"/>
+      <stop offset=".7" stop-color="#111a3b" stop-opacity=".58"/>
+      <stop offset="1" stop-color="#080d1b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hoodie" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5865f2"/>
+      <stop offset=".48" stop-color="#2848b8"/>
+      <stop offset="1" stop-color="#15245c"/>
+    </linearGradient>
+    <linearGradient id="chair" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#273b79"/>
+      <stop offset="1" stop-color="#101a39"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#172858"/>
+      <stop offset="1" stop-color="#070b18"/>
+    </linearGradient>
+    <linearGradient id="laptopBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d5ddf3"/>
+      <stop offset="1" stop-color="#64739a"/>
+    </linearGradient>
+    <radialGradient id="screenGlow">
+      <stop offset="0" stop-color="#60a5fa" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#60a5fa" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="17" flood-color="#02040c" flood-opacity=".62"/>
+    </filter>
+  </defs>
+  <style>
+    .float { transform-box: fill-box; transform-origin: center; animation: drift 6s ease-in-out infinite; }
+    .float.slow { animation-duration: 8s; animation-delay: -3s; }
+    .head { transform-box: fill-box; transform-origin: center; animation: focus 5s ease-in-out infinite; }
+    .typing { transform-box: fill-box; transform-origin: center; animation: type .28s ease-in-out infinite alternate; }
+    .typing.right { animation-delay: -.14s; }
+    .blink { transform-box: fill-box; transform-origin: center; animation: blink 5.2s ease-in-out infinite; }
+    .code-cursor { animation: cursor 1s steps(2, start) infinite; }
+    .screen-light { animation: light 3s ease-in-out infinite alternate; }
+    @keyframes drift { 0%, 100% { transform: translateY(0); opacity: .68; } 50% { transform: translateY(-11px); opacity: 1; } }
+    @keyframes focus { 0%, 100% { transform: rotate(0deg) translateY(0); } 42% { transform: rotate(-1.3deg) translateY(1px); } 63% { transform: rotate(.7deg) translateY(0); } }
+    @keyframes type { to { transform: translateY(4px); } }
+    @keyframes blink { 0%, 46%, 50%, 100% { transform: scaleY(1); } 48% { transform: scaleY(.12); } }
+    @keyframes cursor { to { opacity: 0; } }
+    @keyframes light { to { opacity: .68; } }
+    @media (prefers-reduced-motion: reduce) {
+      .float, .head, .typing, .blink, .code-cursor, .screen-light { animation: none !important; }
+    }
+  </style>
+
+  <ellipse cx="400" cy="320" rx="340" ry="278" fill="url(#ambient)"/>
+  <ellipse cx="400" cy="560" rx="250" ry="25" fill="#02040c" opacity=".58"/>
+  <circle cx="400" cy="305" r="220" fill="none" stroke="#7186ff" stroke-opacity=".14" stroke-width="2"/>
+  <circle cx="400" cy="305" r="188" fill="none" stroke="#a78bfa" stroke-opacity=".1" stroke-width="1.5" stroke-dasharray="4 12"/>
+
+  <g class="float" fill="#c4b5fd" font-family="monospace" font-weight="700">
+    <text x="83" y="214" font-size="29" opacity=".86">&lt;/&gt;</text>
+    <text x="642" y="247" font-size="24" opacity=".82">01</text>
+    <text x="111" y="394" font-size="18" opacity=".7">function()</text>
+  </g>
+  <g class="float slow" fill="none" stroke="#7dd3fc" stroke-width="3">
+    <circle cx="654" cy="354" r="30" fill="#172554" fill-opacity=".72"/>
+    <path d="M641 342h26v19h-26zM645 348l5 4-5 4M654 356h8" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="150" cy="320" r="27" fill="#172554" fill-opacity=".7"/>
+    <path d="M134 320c0-7 6-12 13-11 3-8 15-6 16 2 7 0 10 5 9 10-1 5-5 8-11 8h-18c-6 0-9-3-9-9z"/>
+  </g>
+  <g class="float" fill="#a78bfa" font-family="monospace" font-size="13" font-weight="700">
+    <text x="599" y="166">AI</text>
+    <text x="206" y="177">git</text>
+    <text x="574" y="439">PY</text>
+  </g>
+  <g fill="#60a5fa">
+    <circle cx="210" cy="267" r="3"/><circle cx="586" cy="286" r="4"/>
+    <circle cx="603" cy="193" r="2.5"/><circle cx="182" cy="448" r="3"/>
+    <path d="M690 174h26v3h-26zM701 163h3v25h-3z" opacity=".7"/>
+    <path d="M104 470h22v3h-22zM113 461h3v22h-3z" opacity=".65"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <path d="M270 356c-3-102 21-161 130-161s133 59 130 161l-28 107H298z" fill="url(#chair)" stroke="#5268ba" stroke-opacity=".35" stroke-width="3"/>
+    <path d="M323 420v95M477 420v95" stroke="#8091c8" stroke-opacity=".25" stroke-width="3"/>
+    <path d="M317 520h166v19H317z" fill="#182243"/>
+    <path d="M396 537v23M355 562h90M400 559l-29 12M400 559l29 12" fill="none" stroke="#56658f" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <path d="M400 159c-46 0-76 35-76 88v39h14v-52h124v52h14v-39c0-53-30-88-76-88z" fill="none" stroke="#6676fa" stroke-width="15"/>
+    <path d="M329 247c0-55 27-89 71-89s71 34 71 89v58c0 52-28 86-71 86s-71-34-71-86z" fill="#c9805d"/>
+    <path d="M322 268c-9-67 4-122 41-148 20-14 48-18 74-8 35 13 54 48 52 106-19-4-37-15-51-32-22 18-56 29-103 28z" fill="#111827"/>
+    <path d="M324 246c18-25 27-49 29-72 26 25 61 39 105 41-15-36-41-55-77-55-35 0-56 28-57 86z" fill="#1c2338"/>
+    <path d="M341 283h-12c-14 0-23 11-21 25 2 13 13 21 27 19M459 283h12c14 0 23 11 21 25-2 13-13 21-27 19" fill="none" stroke="#6676fa" stroke-width="12" stroke-linecap="round"/>
+    <path d="M341 283h-12c-14 0-23 11-21 25 2 13 13 21 27 19M459 283h12c14 0 23 11 21 25-2 13-13 21-27 19" fill="none" stroke="#a5b4fc" stroke-width="3" stroke-linecap="round"/>
+    <g class="head">
+      <path d="M351 287c8-6 18-6 26 0M423 287c8-6 18-6 26 0" fill="none" stroke="#432a23" stroke-width="4" stroke-linecap="round"/>
+      <g class="blink">
+        <ellipse cx="365" cy="301" rx="4" ry="5" fill="#111827"/>
+        <ellipse cx="435" cy="301" rx="4" ry="5" fill="#111827"/>
+      </g>
+      <path d="M400 303l-5 18 10 2" fill="none" stroke="#9d593f" stroke-width="3" stroke-linecap="round"/>
+      <path d="M380 341c12 10 28 10 40 0" fill="none" stroke="#773b32" stroke-width="4" stroke-linecap="round"/>
+      <path d="M387 343c8 4 18 4 26 0" fill="none" stroke="#fff1e8" stroke-width="3" stroke-linecap="round"/>
+      <path d="M337 284h33l7 25h-45zM430 284h33l5 25h-45z" fill="none" stroke="#172554" stroke-width="4"/>
+      <path d="M377 293h52" stroke="#172554" stroke-width="4" stroke-linecap="round"/>
+      <path d="M341 289h25M434 289h25" stroke="#bfdbfe" stroke-width="2" opacity=".8"/>
+    </g>
+  </g>
+
+  <path d="M342 373c-54 20-86 60-101 127l62 13 63-96zM458 373c54 20 86 60 101 127l-62 13-63-96z" fill="url(#hoodie)"/>
+  <path d="M380 382c5 26 12 41 20 41s15-15 20-41" fill="none" stroke="#a5b4fc" stroke-opacity=".7" stroke-width="4"/>
+  <path d="M378 392l22 17 22-17" fill="none" stroke="#111c49" stroke-width="5"/>
+  <ellipse class="screen-light" cx="400" cy="359" rx="127" ry="69" fill="url(#screenGlow)"/>
+
+  <g filter="url(#shadow)">
+    <path d="M234 371h332l28 158H206z" fill="#64739a"/>
+    <path d="M247 384h306l22 128H225z" fill="url(#screen)"/>
+    <circle cx="400" cy="391" r="3" fill="#94a3b8"/>
+    <path d="M268 412h46v5h-46zM268 430h61v5h-61zM268 448h49v5h-49zM268 466h67v5h-67zM268 484h51v5h-51z" fill="#fb7185"/>
+    <path d="M322 412h76v5h-76zM337 430h104v5H337zM325 448h86v5h-86zM344 466h93v5h-93zM330 484h77v5h-77z" fill="#38bdf8"/>
+    <path d="M402 412h74v5h-74zM447 430h72v5h-72zM417 448h101v5H417zM445 466h69v5h-69zM415 484h98v5h-98z" fill="#c4b5fd"/>
+    <path d="M524 481h4v13h-4z" fill="#e0f2fe" class="code-cursor"/>
+    <text x="266" y="402" fill="#c4b5fd" font-family="monospace" font-size="10" font-weight="700">HTML</text>
+    <text x="327" y="402" fill="#7dd3fc" font-family="monospace" font-size="10" font-weight="700">CSS</text>
+    <text x="388" y="402" fill="#f9a8d4" font-family="monospace" font-size="10" font-weight="700">JS</text>
+    <text x="430" y="402" fill="#a5b4fc" font-family="monospace" font-size="10" font-weight="700">PY</text>
+    <path d="M206 529h388l-31 25H237z" fill="url(#laptopBody)"/>
+    <path d="M307 532h186l-15 11H322z" fill="#4a577b"/>
+    <path d="M258 535h39M501 535h29" stroke="#8f9bbc" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <g class="typing">
+    <path d="M275 508c9-8 17-8 26-2l28 22-12 16-39-22c-7-4-8-10-3-14z" fill="#c9805d"/>
+    <path d="M300 524l21 13M307 519l22 14M314 515l21 13" fill="none" stroke="#e6a17b" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g class="typing right">
+    <path d="M525 508c-9-8-17-8-26-2l-28 22 12 16 39-22c7-4 8-10 3-14z" fill="#c9805d"/>
+    <path d="M500 524l-21 13M493 519l-22 14M486 515l-21 13" fill="none" stroke="#e6a17b" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <g fill="#a78bfa">
+    <circle cx="245" cy="342" r="3"/><circle cx="555" cy="333" r="4"/>
+    <circle cx="590" cy="425" r="2.5"/><circle cx="208" cy="435" r="2.5"/>
+  </g>
+</svg>

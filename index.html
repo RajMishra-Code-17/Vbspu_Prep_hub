@@ -10,13 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2563eb;
-            --secondary: #1e293b;
-            --accent: #3b82f6;
-            --light: #f8fafc;
-            --white: #ffffff;
-            --text-dark: #1e293b;
-            --text-gray: #64748b;
+            --primary: #3b82f6;
+            --secondary: #050816;
+            --accent: #60a5fa;
+            --light: #111a2b;
+            --white: #0b1220;
+            --text-dark: #e5eaf4;
+            --text-gray: #9aa8bd;
+            --page-background: #080d18;
+            --surface-border: #22304a;
             --transition: all 0.3s ease;
         }
 
@@ -28,7 +30,7 @@
         }
 
         body {
-            background-color: var(--white);
+            background-color: var(--page-background);
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
@@ -36,7 +38,7 @@
 
         /* --- Navbar --- */
         nav {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(7, 12, 24, 0.94);
             backdrop-filter: blur(10px);
             padding: 1rem 5%;
             display: flex;
@@ -45,14 +47,30 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(96, 165, 250, 0.16);
+            box-shadow: 0 8px 26px rgba(0, 0, 0, 0.3);
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            color: var(--primary);
+            color: #eaf2ff;
             text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            min-width: max-content;
+            text-decoration: none;
+        }
+
+        .brand img {
+            display: block;
+            width: 44px;
+            height: 44px;
         }
 
         .nav-links {
@@ -74,19 +92,41 @@
         }
 
         .login-btn {
-            background: var(--primary);
+            background: linear-gradient(135deg, #2563eb, #4f8dff);
             color: white !important;
             padding: 8px 20px;
             border-radius: 5px;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+        }
+
+        .login-btn.logged-in {
+            background: linear-gradient(135deg, #1d4ed8, #6366f1);
+        }
+
+        .nav-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            place-items: center;
+            border: 1px solid rgba(96, 165, 250, 0.28);
+            border-radius: 10px;
+            background: #111a2b;
+            color: #eaf2ff;
+            font-size: 1.1rem;
+            cursor: pointer;
         }
 
         /* --- Hero Section --- */
         .hero {
-            padding: 80px 5% 100px;
+            padding: 64px 5%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+            gap: 32px;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 78% 45%, rgba(79, 70, 229, 0.18), transparent 34%),
+                linear-gradient(135deg, #050816 0%, #0b1228 58%, #101735 100%);
         }
 
         .hero-content {
@@ -95,15 +135,15 @@
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.1rem, 3.5vw, 3.2rem);
             line-height: 1.2;
             margin-bottom: 20px;
-            color: var(--secondary);
+            color: #f8fafc;
         }
 
         .hero-content p {
             font-size: 1.2rem;
-            color: var(--text-gray);
+            color: #b6c2d6;
             margin-bottom: 30px;
         }
 
@@ -117,19 +157,26 @@
             transition: var(--transition);
         }
 
-        .btn-primary { background: var(--primary); color: white; }
-        .btn-outline { border: 2px solid var(--primary); color: var(--primary); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3); }
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #4f8dff);
+            color: white;
+            box-shadow: 0 8px 22px rgba(37, 99, 235, 0.22);
+        }
+        .btn-outline { border: 2px solid #818cf8; color: #c4b5fd; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(37, 99, 235, 0.38); }
 
         .hero-image {
             flex: 1;
-            text-align: right;
+            min-width: 0;
+            text-align: center;
         }
 
         .hero-image img {
-            width: 90%;
-            border-radius: 20px;
-            box-shadow: 20px 20px 60px #d1d9e6;
+            display: block;
+            width: min(100%, 560px);
+            height: auto;
+            margin: 0 auto;
+            filter: drop-shadow(0 20px 35px rgba(1, 4, 17, 0.55));
         }
 
         /* --- Stats Section --- */
@@ -138,9 +185,11 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             padding: 50px 5%;
-            background: var(--secondary);
+            background: #060a14;
             color: white;
             text-align: center;
+            border-top: 1px solid rgba(96, 165, 250, 0.12);
+            border-bottom: 1px solid rgba(96, 165, 250, 0.12);
         }
 
         .stat-item h2 { font-size: 2.5rem; color: var(--accent); }
@@ -166,15 +215,16 @@
             background: var(--white);
             padding: 30px;
             border-radius: 12px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--surface-border);
             transition: var(--transition);
             text-align: center;
             cursor: pointer;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
         }
 
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 14px 34px rgba(37, 99, 235, 0.14);
             border-color: var(--primary);
         }
 
@@ -192,12 +242,14 @@
         }
 
         .list-item {
-            background: white;
+            background: #0b1220;
             padding: 15px;
             border-radius: 8px;
             text-align: center;
             font-weight: 600;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid var(--surface-border);
+            color: var(--text-dark);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
         }
 
         /* --- Companies --- */
@@ -209,14 +261,15 @@
         }
 
         .company-badge {
-            background: #f1f5f9;
+            background: #101a2d;
             padding: 15px 30px;
             border-radius: 50px;
             font-weight: 700;
-            color: var(--secondary);
+            color: #c8d6ed;
+            border: 1px solid rgba(96, 165, 250, 0.2);
             transition: var(--transition);
         }
-        .company-badge:hover { background: var(--primary); color: white; }
+        .company-badge:hover { background: #1d4ed8; color: white; border-color: #60a5fa; }
 
         /* --- Contact --- */
         .contact-container {
@@ -226,9 +279,29 @@
             background: var(--light);
             padding: 50px;
             border-radius: 20px;
+            border: 1px solid var(--surface-border);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
         }
 
         .contact-info i { color: var(--primary); margin-right: 10px; margin-bottom: 20px; }
+
+        .contact-form input,
+        .contact-form textarea {
+            background: #0b1220;
+            color: var(--text-dark);
+            border-color: var(--surface-border) !important;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #8290a8;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: 2px solid rgba(59, 130, 246, 0.35);
+            border-color: #3b82f6 !important;
+        }
 
         /* --- Footer --- */
         footer {
@@ -244,37 +317,382 @@
             margin-bottom: 40px;
         }
 
-        .footer-logo h2 { color: var(--white); margin-bottom: 10px; }
+        .footer-logo h2 { color: #f8fafc; margin-bottom: 10px; }
         .footer-links h4 { margin-bottom: 20px; color: var(--accent); }
         .footer-links ul { list-style: none; }
         .footer-links li { margin-bottom: 10px; }
         .footer-links a { color: #cbd5e1; text-decoration: none; }
+        .footer-links a:hover { color: #93c5fd; }
 
         .disclaimer {
-            border-top: 1px solid #334155;
+            border-top: 1px solid #22304a;
             padding-top: 20px;
             font-size: 0.8rem;
             color: #94a3b8;
             text-align: center;
         }
 
+        /* --- Login dialog --- */
+        .app-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1500;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            background: rgba(2, 6, 18, 0.82);
+            backdrop-filter: blur(9px);
+        }
+
+        .app-modal.open { display: flex; }
+
+        .app-modal-card {
+            width: min(440px, 100%);
+            max-height: calc(100vh - 36px);
+            overflow-y: auto;
+            border: 1px solid rgba(96, 165, 250, 0.26);
+            border-radius: 18px;
+            background: linear-gradient(145deg, #111a2b, #080d18);
+            color: var(--text-dark);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65);
+        }
+
+        .app-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 20px;
+            border-bottom: 1px solid rgba(96, 165, 250, 0.16);
+        }
+
+        .app-modal-header h2 {
+            color: #f8fafc;
+            font-size: 1.2rem;
+        }
+
+        .modal-close {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            border-radius: 50%;
+            background: transparent;
+            color: #b6c2d6;
+            cursor: pointer;
+        }
+
+        .login-form {
+            display: grid;
+            gap: 14px;
+            padding: 20px;
+        }
+
+        .login-form label {
+            color: #bfdbfe;
+            font-size: 0.9rem;
+        }
+
+        .login-form input {
+            width: 100%;
+            margin-top: 6px;
+            border: 1px solid #263b61;
+            border-radius: 9px;
+            padding: 11px 12px;
+            outline: none;
+            background: #080d18;
+            color: #f8fafc;
+        }
+
+        .login-form input:focus {
+            border-color: #60a5fa;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+        }
+
+        .login-note,
+        .login-status {
+            color: #9aa8bd;
+            font-size: 0.82rem;
+        }
+
+        .login-status { min-height: 1.2em; color: #93c5fd; }
+
+        .login-submit,
+        .login-logout {
+            border: 0;
+            border-radius: 9px;
+            padding: 12px;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .login-submit {
+            background: linear-gradient(135deg, #2563eb, #4f8dff);
+        }
+
+        .login-logout {
+            border: 1px solid #34415d;
+            background: transparent;
+            color: #cbd5e1;
+        }
+
+        /* --- Student Assistant --- */
+        .chatbot-launcher {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 1200;
+            display: grid;
+            width: 58px;
+            height: 58px;
+            place-items: center;
+            border: 1px solid rgba(147, 197, 253, 0.35);
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563eb, #6366f1);
+            color: #fff;
+            font-size: 1.35rem;
+            cursor: pointer;
+            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+            transition: var(--transition);
+        }
+
+        .chatbot-launcher:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 36px rgba(79, 70, 229, 0.48);
+        }
+
+        .chatbot-panel {
+            position: fixed;
+            right: 24px;
+            bottom: 94px;
+            z-index: 1200;
+            display: none;
+            flex-direction: column;
+            width: min(380px, calc(100vw - 32px));
+            height: min(520px, calc(100vh - 120px));
+            overflow: hidden;
+            border: 1px solid rgba(96, 165, 250, 0.24);
+            border-radius: 18px;
+            background: #0b1120;
+            box-shadow: 0 20px 55px rgba(0, 0, 0, 0.62);
+        }
+
+        .chatbot-panel.open { display: flex; }
+
+        .chatbot-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 16px;
+            background: linear-gradient(135deg, #111a2b, #172554);
+            border-bottom: 1px solid rgba(96, 165, 250, 0.18);
+        }
+
+        .chatbot-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chatbot-title-icon {
+            display: grid;
+            width: 38px;
+            height: 38px;
+            place-items: center;
+            border-radius: 50%;
+            background: #2563eb;
+            color: white;
+        }
+
+        .chatbot-title h3 {
+            margin: 0;
+            color: #f8fafc;
+            font-size: 1rem;
+        }
+
+        .chatbot-title small { color: #93c5fd; }
+
+        .chatbot-close {
+            border: 0;
+            background: transparent;
+            color: #aab7ca;
+            font-size: 1.15rem;
+            cursor: pointer;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            background:
+                radial-gradient(circle at top right, rgba(37, 99, 235, 0.08), transparent 36%),
+                #080d18;
+        }
+
+        .chat-message {
+            max-width: 88%;
+            margin-bottom: 12px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            color: #e5eaf4;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            overflow-wrap: anywhere;
+        }
+
+        .chat-message.bot {
+            margin-right: auto;
+            border-bottom-left-radius: 4px;
+            background: #172033;
+        }
+
+        .chat-message.user {
+            margin-left: auto;
+            border-bottom-right-radius: 4px;
+            background: #2563eb;
+        }
+
+        .chat-message a {
+            color: #93c5fd;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .chatbot-suggestions {
+            display: flex;
+            gap: 7px;
+            overflow-x: auto;
+            padding: 10px 12px 6px;
+            background: #080d18;
+        }
+
+        .chatbot-suggestions button {
+            flex: 0 0 auto;
+            border: 1px solid rgba(96, 165, 250, 0.25);
+            border-radius: 999px;
+            padding: 7px 10px;
+            background: #111827;
+            color: #bfdbfe;
+            font-size: 0.78rem;
+            cursor: pointer;
+        }
+
+        .chatbot-form {
+            display: flex;
+            gap: 8px;
+            padding: 10px 12px 14px;
+            background: #080d18;
+        }
+
+        .chatbot-form input {
+            flex: 1;
+            min-width: 0;
+            border: 1px solid #263b61;
+            border-radius: 9px;
+            padding: 11px 12px;
+            outline: none;
+            background: #111827;
+            color: #f8fafc;
+        }
+
+        .chatbot-form input:focus { border-color: #60a5fa; }
+
+        .chatbot-send {
+            width: 44px;
+            border: 0;
+            border-radius: 9px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+        }
+
         /* Responsive */
+        @media (max-width: 1100px) {
+            nav { position: sticky; padding: 10px 4%; }
+
+            .nav-toggle {
+                display: grid;
+                margin-left: auto;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: calc(100% + 1px);
+                left: 4%;
+                right: 4%;
+                display: none;
+                flex-direction: column;
+                gap: 2px;
+                max-height: calc(100vh - 90px);
+                overflow-y: auto;
+                padding: 10px;
+                border: 1px solid rgba(96, 165, 250, 0.22);
+                border-radius: 12px;
+                background: rgba(8, 13, 24, 0.98);
+                box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-links.open { display: flex; }
+            .nav-links li { width: 100%; }
+            .nav-links a { display: block; padding: 10px 12px; }
+            .login-btn { text-align: center; }
+        }
+
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; text-align: center; gap: 20px; }
+            .hero-content { max-width: 640px; }
+            .hero-image { width: 100%; }
+            .hero-image img { width: min(88vw, 460px); }
+            .hero-btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+            .hero-btns .btn { margin: 0; }
+            .footer-grid { grid-template-columns: 1.5fr 1fr; gap: 28px; }
+        }
+
         @media (max-width: 768px) {
-            .hero { flex-direction: column; text-align: center; padding-top: 40px; }
-            .hero-image { display: none; }
-            .nav-links { display: none; } /* Simplified for demo */
-            .contact-container { grid-template-columns: 1fr; }
+            section { padding: 44px 5%; }
+            .hero { padding: 36px 16px; }
             .hero-content h1 { font-size: 2.5rem; }
+            .hero-content p { font-size: 1rem; margin-bottom: 20px; }
+            .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 24px 16px; }
+            .stat-item h2 { font-size: 2rem; }
+            .section-title { margin-bottom: 28px; }
+            .section-title h2 { font-size: 1.85rem; }
+            .grid-6 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 16px; }
+            .card { padding: 22px; }
+            .roadmap-container { padding: 22px; gap: 10px; }
+            .contact-container { grid-template-columns: 1fr; gap: 24px; padding: 26px; }
+            footer { padding: 38px 5% 18px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+            .chatbot-launcher { right: 16px; bottom: 16px; }
+            .chatbot-panel { right: 16px; bottom: 84px; height: min(520px, calc(100vh - 100px)); }
+        }
+
+        @media (max-width: 520px) {
+            .brand { gap: 8px; }
+            .brand img { width: 38px; height: 38px; }
+            .logo { font-size: 1.08rem; }
+            .hero-content h1 { font-size: 2.15rem; }
+            .hero-btns { flex-direction: column; }
+            .hero-btns .btn { width: 100%; }
+            .stats { gap: 8px; }
+            .stat-item h2 { font-size: 1.65rem; }
+            .stat-item p { font-size: 0.86rem; }
+            .roadmap-container { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 14px; }
+            .list-item { padding: 12px 8px; }
+            .contact-container { padding: 20px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .app-modal { padding: 12px; }
+            .app-modal-header, .login-form { padding: 16px; }
         }
         .list-item{
     display: block;
     text-decoration: none;
-    color: #1e293b;
+            color: var(--text-dark);
     transition: 0.3s;
 }
 
 .list-item:hover{
-    color: #2563eb;
+            color: #93c5fd;
     transform: translateY(-3px);
 }
 .card-link {
@@ -320,9 +738,14 @@
 
     <!-- NAVBAR -->
     <nav>
-        <img src="images/favicon.ico" height="70px width = 70px">
-        <a href="#" class="logo">VBSPU Prep Hub</a>
-        <ul class="nav-links">
+        <a href="#home" class="brand" aria-label="VBSPU Prep Hub home">
+            <img src="images/prep-hub-mark.svg" alt="">
+            <span class="logo">VBSPU Prep Hub</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="navLinks">
             <li><a href="#home">Home</a></li>
             <li><a href="#roadmap">Roadmaps</a></li>
             <li><a href="#dsa">DSA</a></li>
@@ -331,7 +754,7 @@
             <li><a href="#companies">Companies</a></li>
             <li><a href="#resources">Resources</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#" class="login-btn">Login</a></li>
+            <li><a href="#" class="login-btn" id="loginButton" aria-haspopup="dialog">Login</a></li>
         </ul>
     </nav>
 
@@ -346,7 +769,8 @@
             </div>
         </div>
         <div class="hero-image">
-           <img src="images/vbspu-campus.webp.png" alt="VBSPU Campus">
+           <img src="images/students-reading-book.svg" alt="Cartoon boy and girl reading an open book together">
+        </div>
     </section>
 
     <!-- STATS -->
@@ -410,7 +834,7 @@
     </section>
 
     <!-- DSA ROADMAP -->
-    <section id="roadmap" style="background: #f8fafc;">
+    <section id="roadmap" style="background: var(--white);">
         <div class="section-title">
             <h2>DSA Roadmap</h2>
             <p>Step-by-step guide to mastering DSA</p>
@@ -484,7 +908,7 @@
     </section>
 
     <!-- COMPANY PREPARATION -->
-    <section id="companies" style="background: #f8fafc;">
+    <section id="companies" style="background: var(--white);">
         <div class="section-title">
             <h2>Company Specific Prep</h2>
             <div></div>
@@ -507,7 +931,7 @@
             <h2>Study Resources</h2>
             <div></div>
         </div>
-        <div class="roadmap-container" style="background: white;">
+        <div class="roadmap-container" style="background: var(--light);">
             <a href="resources/html.pdf" target="_blank" class="list-item">HTML</a>
             <a href="resources/css.pdf" target="_blank" class="list-item">CSS</a>
             <a href="resources/c.pdf" target="_blank" class="list-item">C</a>
@@ -587,7 +1011,7 @@
             </div>
             <div class="footer-links">
                 <h4>Designed By</h4>
-                <p>Raj Mishra</p>
+                <p>Raj Mishra & Sneha</p>
                 <div style="margin-top: 20px; font-size: 1.5rem;">
                     <i class="fab fa-linkedin" style="margin-right: 15px;"></i>
                     <i class="fab fa-github"></i>
@@ -595,10 +1019,345 @@
             </div>
         </div>
         <div class="disclaimer">
-            <p>© 2026 VBSPU Prep Hub | Designed & Developed by Raj Mishra</p>
+            <p>© 2026 VBSPU Prep Hub | Designed & Developed by Raj Mishra & Sneha</p>
             <p style="margin-top: 10px;">Disclaimer: This website is an independent student project and is not officially affiliated with Veer Bahadur Singh Purvanchal University.</p>
         </div>
     </footer>
+
+    <div class="app-modal" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle" aria-hidden="true">
+        <div class="app-modal-card">
+            <div class="app-modal-header">
+                <h2 id="loginTitle">Student Login</h2>
+                <button class="modal-close" type="button" data-close-login aria-label="Close login">
+                    <i class="fas fa-xmark"></i>
+                </button>
+            </div>
+            <form class="login-form" id="loginForm">
+                <p class="login-note">Demo profile only. Your name and email are saved in this browser; no password or account verification is used.</p>
+                <label for="studentName">Student name</label>
+                <input id="studentName" name="studentName" type="text" autocomplete="name" placeholder="Enter your name" required>
+                <label for="studentEmail">Email address</label>
+                <input id="studentEmail" name="studentEmail" type="email" autocomplete="email" placeholder="student@example.com" required>
+                <p class="login-status" id="loginStatus" aria-live="polite"></p>
+                <button class="login-submit" id="loginSubmit" type="submit">Continue to Prep Hub</button>
+                <button class="login-logout" id="loginLogout" type="button" hidden>Sign out</button>
+            </form>
+        </div>
+    </div>
+
+    <button class="chatbot-launcher" id="chatbotLauncher" type="button" aria-label="Open student assistant" aria-expanded="false" aria-controls="chatbotPanel">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <aside class="chatbot-panel" id="chatbotPanel" role="dialog" aria-label="Student Assistant" aria-hidden="true">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <span class="chatbot-title-icon"><i class="fas fa-graduation-cap"></i></span>
+                <div>
+                    <h3>Prep Assistant</h3>
+                    <small>Notes and placement guidance</small>
+                </div>
+            </div>
+            <button class="chatbot-close" id="chatbotClose" type="button" aria-label="Close assistant">
+                <i class="fas fa-xmark"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages" aria-live="polite">
+            <div class="chat-message bot">Hi! I can help you find notes, plan DSA preparation, practice aptitude, and get ready for placements. What would you like help with?</div>
+        </div>
+        <div class="chatbot-suggestions" aria-label="Suggested questions">
+            <button type="button" data-question="DSA roadmap">DSA roadmap</button>
+            <button type="button" data-question="Find OS notes">Find OS notes</button>
+            <button type="button" data-question="Placement plan">Placement plan</button>
+        </div>
+        <form class="chatbot-form" id="chatbotForm">
+            <input id="chatbotInput" type="text" autocomplete="off" placeholder="Ask for notes or guidance..." aria-label="Chat message">
+            <button class="chatbot-send" type="submit" aria-label="Send message">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </aside>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        const loginButton = document.getElementById('loginButton');
+        const loginModal = document.getElementById('loginModal');
+        const loginForm = document.getElementById('loginForm');
+        const loginStatus = document.getElementById('loginStatus');
+        const loginSubmit = document.getElementById('loginSubmit');
+        const loginLogout = document.getElementById('loginLogout');
+        const studentNameInput = document.getElementById('studentName');
+        const studentEmailInput = document.getElementById('studentEmail');
+        let studentProfile = null;
+
+        function closeNavigation() {
+            navLinks.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.setAttribute('aria-label', 'Open navigation');
+            navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+
+        navToggle.addEventListener('click', function () {
+            const isOpen = navLinks.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', String(isOpen));
+            navToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+            navToggle.innerHTML = `<i class="fas fa-${isOpen ? 'xmark' : 'bars'}"></i>`;
+        });
+
+        navLinks.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', closeNavigation);
+        });
+
+        function updateLoginButton() {
+            if (studentProfile) {
+                loginButton.textContent = `Hi, ${studentProfile.name.trim().split(/\s+/)[0]}`;
+                loginButton.classList.add('logged-in');
+                loginSubmit.textContent = 'Update profile';
+                loginLogout.hidden = false;
+            } else {
+                loginButton.textContent = 'Login';
+                loginButton.classList.remove('logged-in');
+                loginSubmit.textContent = 'Continue to Prep Hub';
+                loginLogout.hidden = true;
+            }
+        }
+
+        function openLogin() {
+            loginModal.classList.add('open');
+            loginModal.setAttribute('aria-hidden', 'false');
+            studentNameInput.value = studentProfile ? studentProfile.name : '';
+            studentEmailInput.value = studentProfile ? studentProfile.email : '';
+            loginStatus.textContent = '';
+            window.setTimeout(function () { studentNameInput.focus(); }, 40);
+        }
+
+        function closeLogin() {
+            loginModal.classList.remove('open');
+            loginModal.setAttribute('aria-hidden', 'true');
+            loginButton.focus();
+        }
+
+        try {
+            const savedName = localStorage.getItem('vbspuStudentName');
+            const savedEmail = localStorage.getItem('vbspuStudentEmail');
+            if (savedName && savedEmail) {
+                studentProfile = { name: savedName, email: savedEmail };
+            }
+        } catch (error) {
+            loginStatus.textContent = 'Browser storage is unavailable; your profile cannot be restored.';
+        }
+        updateLoginButton();
+
+        loginButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            closeNavigation();
+            openLogin();
+        });
+
+        document.querySelectorAll('[data-close-login]').forEach(function (button) {
+            button.addEventListener('click', closeLogin);
+        });
+
+        loginModal.addEventListener('click', function (event) {
+            if (event.target === loginModal) closeLogin();
+        });
+
+        loginForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const name = studentNameInput.value.trim();
+            const email = studentEmailInput.value.trim();
+            if (!name || !email) {
+                loginStatus.textContent = 'Enter your name and a valid email address.';
+                return;
+            }
+
+            try {
+                localStorage.setItem('vbspuStudentName', name);
+                localStorage.setItem('vbspuStudentEmail', email);
+            } catch (error) {
+                loginStatus.textContent = 'Could not save your profile in this browser. Check storage permissions and try again.';
+                return;
+            }
+
+            studentProfile = { name: name, email: email };
+            updateLoginButton();
+            loginStatus.textContent = `Welcome, ${name}!`;
+            window.setTimeout(closeLogin, 650);
+        });
+
+        loginLogout.addEventListener('click', function () {
+            try {
+                localStorage.removeItem('vbspuStudentName');
+                localStorage.removeItem('vbspuStudentEmail');
+            } catch (error) {
+                loginStatus.textContent = 'Could not clear the saved profile from this browser.';
+                return;
+            }
+
+            studentProfile = null;
+            updateLoginButton();
+            loginStatus.textContent = 'You have signed out.';
+            studentNameInput.value = '';
+            studentEmailInput.value = '';
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                if (loginModal.classList.contains('open')) closeLogin();
+                closeNavigation();
+            }
+        });
+
+        const chatbotLauncher = document.getElementById('chatbotLauncher');
+        const chatbotPanel = document.getElementById('chatbotPanel');
+        const chatbotClose = document.getElementById('chatbotClose');
+        const chatbotForm = document.getElementById('chatbotForm');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+
+        const studyResources = [
+            { label: 'HTML', aliases: ['html'], href: 'resources/html.pdf' },
+            { label: 'CSS', aliases: ['css'], href: 'resources/css.pdf' },
+            { label: 'C programming', aliases: ['c'], href: 'resources/c.pdf' },
+            { label: 'JavaScript', aliases: ['javascript', 'js'], href: 'resources/javascript.pdf' },
+            { label: 'Python', aliases: ['python', 'py'], href: 'resources/python.pdf' },
+            { label: 'C++', aliases: ['c++'], href: 'resources/cpp.pdf' },
+            { label: 'Operating System', aliases: ['operating system', 'os'], href: 'resources/os.pdf' },
+            { label: 'DBMS', aliases: ['dbms'], href: 'resources/dbms.pdf' },
+            { label: 'Computer Networks', aliases: ['computer networks', 'networking', 'cn'], href: 'resources/cn.pdf' },
+            { label: 'OOPs', aliases: ['oops', 'object oriented'], href: 'resources/oops.pdf' },
+            { label: 'Java', aliases: ['java'], href: 'resources/java.pdf' },
+            { label: 'DSA notes', aliases: ['dsa notes'], href: 'resources/dsa.pdf' }
+        ];
+
+        const dsaResources = [
+            { label: 'Arrays', aliases: ['array', 'arrays'], href: 'resources/dsa/arrays.pdf.pdf' },
+            { label: 'Strings', aliases: ['string', 'strings'], href: 'resources/dsa/Strings.pdf' },
+            { label: 'Linked List', aliases: ['linked list', 'linked lists'], href: 'resources/dsa/Linked.pdf.pdf' },
+            { label: 'Stack', aliases: ['stack', 'stacks'], href: 'resources/dsa/Stack.pdf' },
+            { label: 'Queue', aliases: ['queue', 'queues'], href: 'resources/dsa/Queue.pdf' },
+            { label: 'Trees', aliases: ['tree', 'trees'], href: 'resources/dsa/trees.pdf' },
+            { label: 'Graphs', aliases: ['graph', 'graphs'], href: 'resources/dsa/graphs.pdf' },
+            { label: 'Dynamic Programming', aliases: ['dynamic programming', 'dp'], href: 'resources/dsa/dynamic.pdf' }
+        ];
+
+        const aptitudeResources = [
+            { label: 'Quantitative Aptitude', aliases: ['quantitative aptitude', 'quant'], href: 'resources/aptitude/Quantitative%20Aptitude.pdf.pdf' },
+            { label: 'Logical Reasoning', aliases: ['logical reasoning', 'reasoning'], href: 'resources/aptitude/Logical%20Reasoning.pdf' },
+            { label: 'Verbal Ability', aliases: ['verbal ability', 'verbal'], href: 'resources/aptitude/Verbal%20Ability.pdf.pdf' },
+            { label: 'Data Interpretation', aliases: ['data interpretation'], href: 'resources/aptitude/Data%20Interpretation.pdf' }
+        ];
+
+        function openChat() {
+            chatbotPanel.classList.add('open');
+            chatbotPanel.setAttribute('aria-hidden', 'false');
+            chatbotLauncher.setAttribute('aria-expanded', 'true');
+            chatbotInput.focus();
+        }
+
+        function closeChat() {
+            chatbotPanel.classList.remove('open');
+            chatbotPanel.setAttribute('aria-hidden', 'true');
+            chatbotLauncher.setAttribute('aria-expanded', 'false');
+            chatbotLauncher.focus();
+        }
+
+        function addChatMessage(text, sender, link) {
+            const message = document.createElement('div');
+            message.className = `chat-message ${sender}`;
+            message.textContent = text;
+
+            if (link) {
+                const anchor = document.createElement('a');
+                anchor.href = link.href;
+                anchor.target = '_blank';
+                anchor.rel = 'noopener noreferrer';
+                anchor.textContent = link.label;
+                message.append(' ', anchor);
+            }
+
+            chatbotMessages.appendChild(message);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function findResource(message, resources) {
+            const tokens = message.split(/[^a-z0-9+]+/).filter(Boolean);
+            return resources.find(function (resource) {
+                return resource.aliases.some(function (alias) {
+                    return alias.length <= 3 ? tokens.includes(alias) : message.includes(alias);
+                });
+            });
+        }
+
+        function getChatReply(question) {
+            const message = question.toLowerCase().trim();
+            let resource = findResource(message, dsaResources);
+            if (resource) {
+                return { text: `Here is the ${resource.label} DSA resource:`, link: { label: 'Open PDF', href: resource.href } };
+            }
+
+            resource = findResource(message, aptitudeResources);
+            if (resource) {
+                return { text: `You can practice ${resource.label} here:`, link: { label: 'Open PDF', href: resource.href } };
+            }
+
+            resource = findResource(message, studyResources);
+            if (resource) {
+                return { text: `I found the ${resource.label} notes for you:`, link: { label: 'Open notes PDF', href: resource.href } };
+            }
+
+            if (message.includes('dsa') || message.includes('roadmap') || message.includes('coding')) {
+                return { text: 'Start with arrays, strings, linked lists, stacks, and queues. Then study trees, graphs, recursion, and dynamic programming. Practice a few problems daily and revisit topics regularly.' };
+            }
+
+            if (message.includes('placement') || message.includes('job') || message.includes('interview')) {
+                return { text: 'Build one strong project, practice DSA daily, revise OS/DBMS/CN/OOP, prepare aptitude, and practice explaining your projects in mock interviews.' };
+            }
+
+            if (message.includes('resume') || message.includes('cv')) {
+                return { text: 'Keep your resume concise and ATS-friendly. Highlight relevant skills, projects, measurable results, and experience using a clean one-page layout.' };
+            }
+
+            if (message.includes('contact') || message.includes('support')) {
+                return { text: 'You can contact the Prep Hub at rajmishra231107@gmail.com or call +91 9236666751.' };
+            }
+
+            if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
+                return { text: 'Hello! Ask for notes like “DBMS notes”, a topic like “graph PDF”, or guidance like “placement plan”.' };
+            }
+
+            return { text: 'I can help with study notes, DSA topics, aptitude PDFs, resume advice, and placement preparation. Try “Java notes”, “graph PDF”, or “placement plan”.' };
+        }
+
+        chatbotLauncher.addEventListener('click', openChat);
+        chatbotClose.addEventListener('click', closeChat);
+
+        chatbotForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const question = chatbotInput.value.trim();
+            if (!question) return;
+
+            addChatMessage(question, 'user');
+            chatbotInput.value = '';
+            const reply = getChatReply(question);
+            addChatMessage(reply.text, 'bot', reply.link);
+        });
+
+        document.querySelectorAll('[data-question]').forEach(function (button) {
+            button.addEventListener('click', function () {
+                openChat();
+                chatbotInput.value = button.dataset.question;
+                chatbotForm.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+            });
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && chatbotPanel.classList.contains('open')) {
+                closeChat();
+            }
+        });
+    </script>
 
 </body>
 </html>
